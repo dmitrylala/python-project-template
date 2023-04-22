@@ -1,0 +1,11 @@
+{
+    "full_name": "Dmitry Nesterov",
+    "email": "dim.nesterov2015@gmail.com",
+    "project_name": "Python Boilerplate",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
+    "version": "0.1.0",
+    "python_version": "3.10",
+    "use_prettier_hook": "y",
+    "open_source_license": ["MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3", "Not open source"]
+}
