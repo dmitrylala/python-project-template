@@ -1,3 +1,12 @@
 # python-project-template
 
-Python project template with linters and pre-commit hooks.
+## Usage
+```console
+cookiecutter https://github.com/dmitrylala/python-project-template.git
+```
+
+## Requirements
+```console
+# cookiecutter package
+pip install -U cookiecutter
+```
