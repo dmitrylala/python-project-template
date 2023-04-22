@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "{{cookiecutter.project_name}}"
+version = "0.1.0"
+description = "Python package template with cookiecutter."
+authors = ["Dmitry Nesterov <dim.nesterov2015@gmail.com>"]
+readme = "README.md"
+packages = [{include = "{{cookiecutter.project_name}}"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+black = ">=23.3.0"
+pre-commit = ">=3.2.2"
+
+[tool.black]
+line-length = 100
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
