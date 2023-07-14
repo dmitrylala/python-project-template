@@ -1,4 +1,4 @@
-select = ["E", "F", "B", "I", "N", "A", "COM", "C4", "EXE", "ISC", "G", "PIE", "PT", "Q",
+select = ["E", "F", "B", "I", "N", "A", "COM", "C4", "EXE", "ISC", "PIE", "PT", "Q",
 		"RSE", "RET", "SIM", "TID", "ARG", "PD", "PL", "NPY", "RUF",
 ]
 

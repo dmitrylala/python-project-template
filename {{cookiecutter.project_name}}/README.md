@@ -2,18 +2,18 @@
 
 ## Usage
 
-```console
+```{{ cookiecutter.syntax_highlighting }}
 
 ```
 
 ## Installation
 
-```console
+```{{ cookiecutter.syntax_highlighting }}
 poetry install --without dev
 ```
 
 ## Hooks & tests
 
-```console
+```{{ cookiecutter.syntax_highlighting }}
 make format && make test
 ```
