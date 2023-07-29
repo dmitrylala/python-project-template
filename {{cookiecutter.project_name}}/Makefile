@@ -25,7 +25,7 @@ update-dev: ## Update development dependencies
 test: ## Run all tests
 	pytest tests/*.py
 
-build: ## Build docker image from dockerfile (--no-cache)
+build: ## Build docker image from dockerfile
 	DOCKER_BUILDKIT=1 docker build \
 		-f Dockerfile \
 		--network=host \
@@ -36,7 +36,7 @@ run: ## Create docker container from image and run
 		--name {{ cookiecutter.container_name }} \
 		-p 127.0.0.1:8000:8080 \
 		--network host \
-		{{ cookiecutter.image_name }} python
+		{{ cookiecutter.image_name }} /bin/bash
 
 start: ## Start created container
 	docker start {{ cookiecutter.container_name }}
