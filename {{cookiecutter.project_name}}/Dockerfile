@@ -11,7 +11,7 @@ RUN python -m pip install --upgrade pip && pip install poetry -U
 WORKDIR /venv
 
 # Copy from local
-COPY pyproject.toml poetry.lock ruff.toml README.md ./
+COPY pyproject.toml ruff.toml README.md ./
 COPY {{ cookiecutter.project_slug }} ./{{ cookiecutter.project_slug }}
 
 # Installing dependencies
