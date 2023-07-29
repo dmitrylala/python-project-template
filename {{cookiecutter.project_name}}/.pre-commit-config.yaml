@@ -29,15 +29,6 @@ repos:
       - id: docformatter
         args: [--in-place, --wrap-summaries=99, --wrap-descriptions=99]
 
-  {% if cookiecutter.use_prettier_hook == 'y' -%}
-  # yaml formatting
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.6
-    hooks:
-      - id: prettier
-        types: [yaml]
-  {% endif %}
-
   # shell scripts linter
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.9.0.2

@@ -14,7 +14,7 @@ format: ## Run pre-commit hooks
 	pre-commit run -a
 
 sync: ## Merge changes from {{ cookiecutter.main_branch_name }} branch to your current branch
-	git pull
+	git fetch -p
 	git pull origin {{ cookiecutter.main_branch_name }}
 	poetry install
 
@@ -24,3 +24,22 @@ update-dev: ## Update development dependencies
 
 test: ## Run all tests
 	pytest tests/*.py
+
+build: ## Build docker image from dockerfile (--no-cache)
+	DOCKER_BUILDKIT=1 docker build \
+		-f Dockerfile \
+		--network=host \
+		-t {{ cookiecutter.image_name }} .
+
+run: ## Create docker container from image and run
+	docker run -dit \
+		--name {{ cookiecutter.container_name }} \
+		-p 127.0.0.1:8000:8080 \
+		--network host \
+		{{ cookiecutter.image_name }} python
+
+start: ## Start created container
+	docker start {{ cookiecutter.container_name }}
+
+stop: ## Stop running container
+	docker stop {{ cookiecutter.container_name }}
