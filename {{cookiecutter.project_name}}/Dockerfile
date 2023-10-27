@@ -1,19 +1,21 @@
-ARG PYTHON_VERSION="{{ cookiecutter.python_image }}"
+FROM python:{{ cookiecutter.python_version }}
 
-FROM python:${PYTHON_VERSION} as python_stage
+# Dev deps (Remove for prod)
+RUN apt-get update && apt-get install -y vim wget curl git
 
-RUN apt-get update && \
-	apt-get install -y git
+RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.1/zsh-in-docker.sh)" -- \
+        -t robbyrussell \
+        -p https://github.com/zsh-users/zsh-autosuggestions
 
-# Install poetry
+ENV ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#dedede,bg=#9c9c9c,bold,underline"
+# Dev deps end
+
 RUN python -m pip install --upgrade pip && pip install poetry -U
 
-WORKDIR /venv
-
-# Copy from local
-COPY pyproject.toml ruff.toml README.md ./
+COPY pyproject.toml poetry.lock ./
 COPY {{ cookiecutter.project_slug }} ./{{ cookiecutter.project_slug }}
 
-# Installing dependencies
 RUN poetry config virtualenvs.create false \
-	&& poetry install --without dev --no-interaction --no-ansi
+        && poetry install --without dev --no-interaction --no-ansi
+
+ENTRYPOINT [ "zsh" ]
