@@ -2,7 +2,9 @@
 name = "{{ cookiecutter.project_name.lower().replace(' ', '-') }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_short_description }}"
-authors = ["{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
+authors = [
+    { name = "{{ cookiecutter.full_name }}", email = "<{{ cookiecutter.email }}>" },
+]
 readme = "README.md"
 requires-python = ">={{ cookiecutter.python_version }},<3.14"
 dependencies = [
