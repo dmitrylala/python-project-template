@@ -9,11 +9,8 @@ cookiecutter https://github.com/dmitrylala/python-project-template.git
 ## Requirements
 
 ```console
+# uv
+pip install -U uv
 # cookiecutter package
-pip install -U cookiecutter
+uv tool install --python python3.10 cookiecutter
 ```
-
-## Todo
-
-- ruff.toml: пофиксить проблему если версия питона с двумя точками
-- Удалить readme из pyproject.toml, иначе у докера проблемы

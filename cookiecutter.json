@@ -7,7 +7,7 @@
         "github",
         "gitlab"
     ],
-    "main_branch_name": "{%- if cookiecutter.repo == 'github' -%}main{%- elif cookiecutter.repo == 'gitlab' -%}master{% endif %}",
+    "main_branch_name": "master",
     "syntax_highlighting": "{%- if cookiecutter.repo == 'github' -%}console{%- elif cookiecutter.repo == 'gitlab' -%}yaml{% endif %}",
     "project_short_description": "Description",
     "version": "0.1.0",
